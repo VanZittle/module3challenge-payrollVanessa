@@ -8,10 +8,11 @@ const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   
   let keepAdding = true;
-  
+  //While is used to create a loop, so we can add employees one right after the other.
   while (keepAdding){
     let employee = {};
-
+    
+    //a variable is created per each data input: Name, Last name and Salary. isNaN is used to review in case numeric values are added where letters are needed.
     const userName = window.prompt("Add employee's name");
     if (userName === "" || !isNaN(userName)){
       return window.alert("Please enter a valid choice");
@@ -26,15 +27,18 @@ const collectEmployees = function() {
     if (isNaN(userSalary)){
       window.alert("Please enter a valid choice");
     }else employee.salary = Number(userSalary);
-      
+    
+    //Push is used to send data collected to the html table
     employeesArray.push(employee);
     
     const addAnother = window.confirm("Add another employee?")
     
+    //In case no more employees are needed, this function will be stopped with Return, and values will be saved.
     if (addAnother === false) return employeesArray;
       
   }
 }
+
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
